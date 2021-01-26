@@ -46,10 +46,11 @@ public boolean cbi(String name, String pass){
 	}
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
+		while(true) {
 		System.out.println("enter email");
-		String email=sc.nextLine();
+		String email=sc.next();
 		System.out.println("enter Password");
-		String password=sc.nextLine();
+		String password=sc.next();
 		System.out.println("enter j for jailor,p for police,c for cbi");
 		char ch=sc.next().charAt(0);
 		User userobj=new User(email,password);
@@ -86,6 +87,12 @@ public boolean cbi(String name, String pass){
 			else {
 				System.out.println("enter correct Details");
 			}
+		}
+		System.out.println("want to login again? yes/no");
+		String s1=sc.next();
+		if(s1.equals("no")) {
+			break;
+		}
 		}
 	}
 }
