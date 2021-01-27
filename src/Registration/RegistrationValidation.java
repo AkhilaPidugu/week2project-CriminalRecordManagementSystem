@@ -1,18 +1,62 @@
 package Registration;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 public class RegistrationValidation {
-	static Map<String, String> jailormap = new TreeMap<String, String>();
-	static Map<String, String> policemap = new TreeMap<String, String>();
-	static Map<String, String> cbimap = new TreeMap<String, String>(); 
+	public static Map<String,ArrayList> jailormap = new TreeMap<String, ArrayList>();
+	public static Map<String,ArrayList> policemap = new TreeMap<String, ArrayList>();
+	public static Map<String,ArrayList> cbimap = new TreeMap<String, ArrayList>(); 
 	Set<String> emailset = new TreeSet<String>();
 
+	public boolean checkUserDetails(String email, String password, String confirmpassword,char ch,String name,String dpt) {
+		if(validEmail(email)&&validPassword(password,confirmpassword)) {
+			if(!emailset.contains(email)) {
+				if(ch=='j') {
+					ArrayList<String> list=new ArrayList<String>();
+					list.add(name);
+					list.add(dpt);
+				jailormap.put(email, list);
+				emailset.add(email);
+		    	return true;
+				}
+				else if(ch=='p') {
+					ArrayList<String> list=new ArrayList<String>();
+					list.add(name);
+					list.add(dpt);
+				policemap.put(email, list);
+				emailset.add(email);	
+			    	return true;
+				}
+				else if(ch=='c') {
+					ArrayList<String> list=new ArrayList<String>();
+					list.add(name);
+					list.add(dpt);
+				cbimap.put(email, list);
+				emailset.add(email);
+				    return true;
+			    }
+			    return false;
+		    }
+			return false;
+		}
+		else if(emailset.contains(email)) {
+			System.out.println("Email already exists");
+			return false;
+		}
+		else
+			return false;}
+
+	private boolean validEmail(String email) {
+		
+		 String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";//^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+		 System.out.println("Correct email validation");
+		 return email.matches(regex);
+	}
 	private boolean validPassword(String password, String confirmPassword) {
 
 		String regex = "^(?=.*[0-9])"
@@ -25,34 +69,6 @@ public class RegistrationValidation {
 		Matcher m2 = p.matcher(confirmPassword); 
 		return (m1.matches() && m2.matches());
 		 
-	}
-	public boolean checkUserDetails(String email, String password, String confirmpassword,char ch) {
-		if(validEmail(email)&&validPassword(password,confirmpassword)) {
-			if(!emailset.contains(email)) {
-				if(ch=='j') {
-				jailormap.put(email, password);
-		    	return true;
-				}
-				else if(ch=='p') {
-					policemap.put(email, password);
-			    	return true;
-				}
-				else if(ch=='c') {
-					cbimap.put(email, password);
-				    return true;
-			    }
-			    return false;
-		    }
-			return false;
-		}
-		else
-			return false;}
-
-	private boolean validEmail(String email) {
-		
-		 String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";//^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		 System.out.println("Correct email validation");
-		 return email.matches(regex);
 	}
 	
 }
