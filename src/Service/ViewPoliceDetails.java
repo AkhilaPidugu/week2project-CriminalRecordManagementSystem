@@ -2,11 +2,11 @@ package Service;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.Map.Entry;
 
 import Registration.RegistrationValidation;
 
-public class ViewJailerDetails {
+public class ViewPoliceDetails {
 
 	RegistrationValidation obj=new RegistrationValidation();
 	Map<String, ArrayList> map=obj.jailormap;
@@ -21,14 +21,10 @@ public class ViewJailerDetails {
 		else {
 		System.out.println("your name:"+list.get(0));
 		System.out.println("your department:"+list.get(1));
-		
-		
+	
 		
 		}
 		
 	}
-	
-	
+
 }
-
-

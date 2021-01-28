@@ -20,6 +20,7 @@ public class RegistrationValidation {
 					ArrayList<String> list=new ArrayList<String>();
 					list.add(name);
 					list.add(dpt);
+					list.add(password);
 				jailormap.put(email, list);
 				emailset.add(email);
 		    	return true;
@@ -53,8 +54,8 @@ public class RegistrationValidation {
 
 	private boolean validEmail(String email) {
 		
-		 String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";//^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		 System.out.println("Correct email validation");
+		 String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+		// System.out.println("Correct email validation");
 		 return email.matches(regex);
 	}
 	private boolean validPassword(String password, String confirmPassword) {
@@ -64,7 +65,6 @@ public class RegistrationValidation {
                 + "(?=.*[@#$%^&+=])"
                 + "(?=\\S+$).{8,20}$"; 
 		Pattern p = Pattern.compile(regex); 
-
 		Matcher m1 = p.matcher(password);
 		Matcher m2 = p.matcher(confirmPassword); 
 		return (m1.matches() && m2.matches());
