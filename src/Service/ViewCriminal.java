@@ -3,8 +3,8 @@ package Service;
 import java.util.ArrayList;
 import java.util.Map;
 
-import Registration.LoginValidation;
-import Registration.RegistrationValidation;
+import BusinessLogic.LoginValidation;
+import BusinessLogic.RegistrationValidation;
 
 public class ViewCriminal{
 	

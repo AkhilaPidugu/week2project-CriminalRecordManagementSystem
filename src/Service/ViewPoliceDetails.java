@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import Registration.RegistrationValidation;
+import BusinessLogic.RegistrationValidation;
 
 public class ViewPoliceDetails {
 

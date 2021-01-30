@@ -1,4 +1,4 @@
-package Registration;
+package BusinessLogic;
 
 import java.util.ArrayList;
 import java.util.Map;

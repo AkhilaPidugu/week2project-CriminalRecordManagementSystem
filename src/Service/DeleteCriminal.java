@@ -14,6 +14,7 @@ public class DeleteCriminal {
 		}
 		else {
 		list1.clear();
+		System.out.println("Data deleted successfully");
 	}
 		
 

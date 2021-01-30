@@ -1,13 +1,11 @@
-package Registration;
+package BusinessLogic;
 import java.util.Scanner;
-
 import Service.AddCriminal;
 import Service.DeleteCBI;
 import Service.DeleteCriminal;
 import Service.DeleteJailer;
 import Service.DeletePolice;
 import Service.UpdateCBI;
-import Service.UpdateCriminal;
 import Service.UpdateJailer;
 import Service.UpdatePolice;
 import Service.ViewCBIDetails;
@@ -168,27 +166,23 @@ public class LoginValidation  {
 					}
 		}
 		else if(option==6) {
-			System.out.println("Select and Option accordingly 1.AddCriminal 2.UpdateCriminal 3.ViewCriminal 4.DeleteCriminal 5.Exit 1/2/3/4/5");
+			System.out.println("Select and Option accordingly 1.AddCriminal 2.ViewCriminal 3.DeleteCriminalData 4.Exit 1/2/3/4");
 			int opt=sc.nextInt();
 			if(opt==1) {
 			AddCriminal adc=new AddCriminal();
 			String name="",dept="";
 			adc.addCriminal(name,dept);
 			}
-			else if (opt==2) {
-				String name="";
-				UpdateCriminal uc=new UpdateCriminal();
-				uc.updateCriminalDetails(name);
-			}
-			else if(opt==3) {
+
+			else if(opt==2) {
 				ViewCriminal vc=new ViewCriminal();
 				vc.viewCriminalDetails();
 			}
-			else if(opt==4) {
+			else if(opt==3) {
 				DeleteCriminal dc=new DeleteCriminal();
 				dc.deleteCriminal();
 			}
-			else if(opt==5) {
+			else if(opt==4) {
 				System.out.println("Exit successfully done.Thank you."); 
 				break;
 			}	

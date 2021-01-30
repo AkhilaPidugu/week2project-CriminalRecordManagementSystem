@@ -3,7 +3,7 @@ package Service;
 import java.util.ArrayList;
 import java.util.Map;
 
-import Registration.RegistrationValidation;
+import BusinessLogic.RegistrationValidation;
 
 public class DeletePolice {
 
